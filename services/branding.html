@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branding Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#c8c2b7;color:#56483b;cursor:none}
+
+/* CURSOR (lule) */
+.cursor-dot{width:32px;height:32px;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
+.cursor-fallback{display:inline-block;transition:transform .3s}
+.cursor-dot.hover .cursor-fallback{transform:scale(1.3)}
+.cursor-ring{width:34px;height:34px;border:1.5px solid rgba(255,255,255,.8);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.6;transition:width .3s,height .3s,opacity .3s}
+.cursor-ring.hover{width:56px;height:56px;opacity:1}
+
+/* NAVBAR */
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:25px 60px;position:fixed;width:100%;z-index:10;background:rgba(246,243,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.07)}
+.logo{font-family:'Playfair Display',serif;font-size:22px;color:#111;text-decoration:none}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:13px;letter-spacing:.1em;color:#56483b;text-decoration:none;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:#111}
+
+/* HERO */
+.hero{position:relative;height:100vh;overflow:hidden;background:linear-gradient(135deg,#49110b 0%,#56483b 55%,#c8c2b7 100%)}
+.hero-media{position:absolute;inset:0;z-index:0;transition:transform .4s ease-out;will-change:transform}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;animation:zoomOut 10s ease forwards}
+@keyframes zoomOut{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.6) 100%);display:flex;justify-content:center;align-items:center;padding:0 40px}
+.hero-content{text-align:center;color:#fff;max-width:780px;width:100%}
+.hero-eyebrow{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:22px;display:flex;align-items:center;justify-content:center;gap:12px;opacity:0;transform:translateY(10px);animation:fadeUp .7s ease forwards .5s}
+.hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,72px);line-height:1.1;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.4);opacity:0;transform:translateY(20px);animation:fadeUp 1s ease forwards .7s}
+.hero-content h1 em{font-style:italic;color:rgba(255,255,255,.65)}
+.hero-content p{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;max-width:460px;margin:28px auto 0;text-shadow:0 1px 8px rgba(0,0,0,.3);opacity:0;transform:translateY(10px);animation:fadeUp .8s ease forwards 1.1s}
+.btn{display:inline-block;margin-top:32px;padding:13px 32px;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.08);text-decoration:none;color:#fff;transition:.3s;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:fadeUp .7s ease forwards 1.3s;cursor:none;border-radius:2px}
+.btn:hover{background:rgba(255,255,255,.22);border-color:#fff}
+
+/* SERVICES */
+.services{padding:120px 80px;text-align:center}
+.services h2{font-family:'Playfair Display',serif;font-size:40px;margin-bottom:16px}
+.services-sub{color:#777;font-size:14px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:70px}
+.steps-list{list-style:none}
+.step-item{background:#fff;border-radius:10px;padding:40px 48px;display:grid;grid-template-columns:70px 1fr 40px;align-items:center;gap:32px;margin-bottom:20px;text-align:left;transition:transform .3s,box-shadow .3s;cursor:none;opacity:0;transform:translateY(24px)}
+.step-item.visible{animation:fadeUp .6s ease forwards}
+.step-item:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
+.step-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:400;color:#e8e4de;line-height:1;transition:color .4s}
+.step-item:hover .step-num{color:#111}
+.step-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400}
+.step-desc{font-size:13px;color:#777;margin-top:6px;letter-spacing:.05em;line-height:1.6;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+.step-item:hover .step-desc{opacity:1;transform:translateY(0)}
+.step-arrow{font-size:1.1rem;color:#bbb;transition:color .3s,transform .3s}
+.step-item:hover .step-arrow{color:#111;transform:translateX(6px)}
+
+/* PACKAGES */
+.packages{padding:120px 80px;text-align:center;background:#d6d0c6}
+.packages h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:400;margin-bottom:16px}
+.pk-sub{color:#777;font-size:14px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:70px}
+.pk-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:960px;margin:0 auto;text-align:left}
+.pk{position:relative;background:#fff;border-radius:10px;padding:48px 40px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s;opacity:0;transform:translateY(24px)}
+.pk.visible{animation:fadeUp .7s ease forwards}
+.pk:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.pk.dark{background:#49110b;color:#fff}
+.pk-tag{position:absolute;top:18px;right:22px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.pk h3{font-size:12px;letter-spacing:.25em;text-transform:uppercase;font-weight:500;color:#777}
+.dark h3,.dark .pk-for{color:rgba(255,255,255,.6)}
+.pk-for{font-size:14px;color:#777;margin:10px 0 24px;line-height:1.6}
+.pk-price{font-family:'Playfair Display',serif;font-size:60px;line-height:1;margin-bottom:28px;color:#111}
+.dark .pk-price{color:#fff}
+.pk ul{list-style:none;margin-bottom:36px;flex:1}
+.pk li{font-size:14px;padding:10px 0;border-top:1px solid rgba(86,72,59,.15);display:flex;gap:12px;line-height:1.5}
+.dark li{border-color:rgba(255,255,255,.15)}
+.pk li::before{content:'—';color:#49110b}
+.dark li::before{color:rgba(255,255,255,.5)}
+.pk-btn{padding:15px 24px;background:#49110b;color:#fff;border:none;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;border-radius:2px;cursor:none;transition:background .3s}
+.pk-btn:hover{background:#6b1810}
+.dark .pk-btn{background:#fff;color:#49110b}
+.dark .pk-btn:hover{background:#c8c2b7}
+
+/* SCROLL TEXT */
+.scroll-text{overflow:hidden;background:#c8c2b7;color:#49110b;padding:20px 0}
+.scroll-track{display:flex;width:max-content;animation:scroll 12s linear infinite;font-size:50px;font-weight:500}
+.scroll-track span{margin-right:60px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* STATS */
+.stats{background:#49110b;color:#fff;display:flex;justify-content:space-around;padding:80px 40px;text-align:center}
+.stat h3{font-size:40px;font-family:'Playfair Display',serif}
+.stat p{margin-top:8px;color:rgba(255,255,255,.45);font-size:13px;letter-spacing:.15em;text-transform:uppercase}
+
+/* FAQ */
+.faq{padding:120px 80px;text-align:center}
+.faq h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:400;margin-bottom:16px}
+.faq-sub{color:#777;font-size:14px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:70px}
+.faq .wrap{max-width:760px;margin:0 auto;text-align:left}
+details{background:#fff;border-radius:10px;padding:24px 32px;margin-bottom:14px;transition:box-shadow .3s}
+details:hover{box-shadow:0 20px 60px rgba(0,0,0,.08)}
+summary{font-family:'Playfair Display',serif;font-size:1.2rem;cursor:none;list-style:none;display:flex;justify-content:space-between;gap:20px;color:#111}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:#49110b;font-size:1.4rem;line-height:1}
+details[open] summary::after{content:'–'}
+details p{margin-top:14px;color:#777;line-height:1.8;font-size:14px}
+
+/* CTA + FORM */
+.cta-contact{padding:140px 80px 120px;text-align:center;position:relative;overflow:hidden}
+.cta-contact::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(73,17,11,.07) 0%,transparent 70%);pointer-events:none}
+.cta-heading{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.cta-heading.visible{opacity:1;transform:translateY(0)}
+.cta-contact h2{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:400;line-height:1.1;color:#111}
+.cta-contact h2 em{font-style:italic;color:#49110b}
+.cta-sub{margin-top:16px;font-size:14px;color:#999;letter-spacing:.2em;text-transform:uppercase}
+.cta-divider{width:60px;height:1px;background:rgba(73,17,11,.25);margin:48px auto}
+.blend-form{max-width:600px;margin:0 auto;display:grid;gap:0;opacity:0;transform:translateY(30px);transition:opacity .9s ease .2s,transform .9s ease .2s}
+.blend-form.visible{opacity:1;transform:translateY(0)}
+.blend-field{position:relative;margin-bottom:36px}
+.blend-field input,.blend-field textarea,.blend-field select{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(86,72,59,.3);padding:12px 0;font-family:'Playfair Display',serif;font-size:18px;color:#111;outline:none;transition:border-color .4s;cursor:none;border-radius:0;appearance:none}
+.blend-field input::placeholder,.blend-field textarea::placeholder{color:rgba(86,72,59,.35);font-style:italic}
+.blend-field select{color:rgba(86,72,59,.35);font-style:italic}
+.blend-field select.filled{color:#111;font-style:normal}
+.blend-field input:focus,.blend-field textarea:focus,.blend-field select:focus{border-bottom-color:#49110b}
+.blend-field::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#49110b;transition:width .4s ease}
+.blend-field:focus-within::after{width:100%}
+.blend-field label{position:absolute;top:12px;left:0;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(86,72,59,.5);transition:top .3s,font-size .3s,color .3s;pointer-events:none}
+.blend-field input:focus ~ label,.blend-field input:not(:placeholder-shown) ~ label,.blend-field textarea:focus ~ label,.blend-field textarea:not(:placeholder-shown) ~ label{top:-14px;font-size:9px;color:#49110b}
+.form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.blend-field textarea{resize:none;height:60px;line-height:1.6}
+.select-wrap{position:relative}
+.select-wrap::after{content:'↓';position:absolute;right:0;top:12px;font-size:14px;color:rgba(86,72,59,.4);pointer-events:none}
+.select-label{display:block;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(86,72,59,.5);margin-bottom:10px;text-align:left}
+.btn-submit{margin-top:20px;display:inline-flex;align-items:center;gap:12px;padding:16px 48px;background:#49110b;color:#fff;border:none;font-family:'Playfair Display',serif;font-size:18px;font-style:italic;letter-spacing:.02em;cursor:none;transition:background .3s,transform .2s,letter-spacing .3s;border-radius:2px}
+.btn-submit:hover{background:#6b1810;transform:translateY(-2px);letter-spacing:.06em}
+.btn-submit .arrow{transition:transform .3s;font-style:normal}
+.btn-submit:hover .arrow{transform:translateX(6px)}
+
+footer{text-align:center;padding:40px;color:#777;border-top:1px solid rgba(86,72,59,.15)}
+
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:900px){
+  .navbar{padding:20px 30px}
+  .nav-links{display:none}
+  .services,.packages,.faq{padding:80px 30px}
+  .step-item{grid-template-columns:50px 1fr;padding:28px 24px}
+  .step-arrow{display:none}
+  .step-desc{opacity:1;transform:none}
+  .pk-grid{grid-template-columns:1fr}
+  .stats{flex-direction:column;gap:40px}
+  details{padding:20px 22px}
+  .cta-contact{padding:80px 30px}
+  .form-row-2{grid-template-columns:1fr;gap:0}
+}
+
+/* Telefon / touch: pa kursor të personalizuar */
+@media(hover:none){
+  .cursor-dot,.cursor-ring{display:none}
+  body,.btn,.step-item,.btn-submit,.pk-btn,summary,.blend-field input,.blend-field textarea,.blend-field select{cursor:auto}
+  .step-desc{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-ring" id="ring"></div>
+<div class="cursor-dot" id="dot"><span class="cursor-fallback">🌸</span></div>
+
+<nav class="navbar">
+  <a href="../index.html" class="logo">branding.al</a>
+  <ul class="nav-links">
+    <li><a href="#process">Services</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-media" id="heroMedia">
+    <img class="hero-img" src="../logo/smm.png" alt="" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Branding Services</div>
+      <h1>We build brands<br>that <em>endure.</em></h1>
+      <p>Our process transforms your vision into a cohesive identity, crafted with intention, built for longevity.</p>
+      <a href="#process" class="btn">Explore our process</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="process">
+  <h2>Our Process</h2>
+  <p class="services-sub">Four most needed services</p>
+  <ol class="steps-list">
+    <li class="step-item" data-delay="0">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-name">Logo Design</div>
+        <div class="step-desc">Color, typography, mark, wordmark & symbol creation</div>
+      </div>
+    </li>
+    <li class="step-item" data-delay="0.1">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-name">Visual Branding</div>
+        <div class="step-desc">Color palette, photography style, iconography</div>
+      </div>
+    </li>
+    <li class="step-item" data-delay="0.2">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-name">Brand Guidelines</div>
+        <div class="step-desc">Brand foundation, logo usage, color palette, typography, voice tone, application</div>
+      </div>
+    </li>
+    <li class="step-item" data-delay="0.3">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <div class="step-name">Market Research</div>
+        <div class="step-desc">Making your brand stand out in the market</div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <h2>Paketat Tona</h2>
+  <p class="pk-sub">Çmim fiks · pa surpriza</p>
+  <div class="pk-grid">
+    <article class="pk" data-delay="0">
+      <h3>Branding Bazë</h3>
+      <p class="pk-for">Për biznese që duan një identitet të qartë dhe profesional që nga fillimi.</p>
+      <div class="pk-price">€100</div>
+      <ul>
+        <li>Dizajn logoje (simbol dhe wordmark)</li>
+        <li>Paleta e ngjyrave dhe tipografia</li>
+        <li>Identitet vizual: stil fotografie dhe ikona</li>
+        <li>Udhëzues i shkurtër brandi me rregullat e përdorimit</li>
+        <li>Skedarë gati për print dhe rrjete sociale</li>
+      </ul>
+      <button class="pk-btn" onclick="choosePackage('Branding Bazë — €100')">Zgjidh paketën →</button>
+    </article>
+
+    <article class="pk dark" data-delay="0.15">
+      <span class="pk-tag">Me website</span>
+      <h3>Branding + Website</h3>
+      <p class="pk-for">Për biznese që duan identitetin dhe prezencën online së bashku, nga një ekip.</p>
+      <div class="pk-price">€350</div>
+      <ul>
+        <li>Gjithçka që përfshin Branding Bazë</li>
+        <li>Website Fillo Online një-faqesh, për celular</li>
+        <li>Menu ose shërbime, galeri dhe vlerësime klientësh</li>
+        <li>Google Maps, orari dhe butona WhatsApp e Instagram</li>
+        <li>Website i dizajnuar sipas identitetit të ri</li>
+      </ul>
+      <button class="pk-btn" onclick="choosePackage('Branding + Website — €400')">Zgjidh paketën →</button>
+    </article>
+  </div>
+</section>
+
+<!-- SCROLL TEXT -->
+<div class="scroll-text">
+  <div class="scroll-track">
+    <span>Logo Design</span><span>•</span>
+    <span>Visual Branding</span><span>•</span>
+    <span>Brand Guidelines</span><span>•</span>
+    <span>Market Research</span><span>•</span>
+    <span>Logo Design</span><span>•</span>
+    <span>Visual Branding</span><span>•</span>
+    <span>Brand Guidelines</span><span>•</span>
+    <span>Market Research</span><span>•</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><h3 class="count" data-target="5">0</h3><p>Projects Completed</p></div>
+  <div class="stat"><h3 class="count" data-target="5">0</h3><p>Happy Clients</p></div>
+  <div class="stat"><h3 class="count" data-target="2">0</h3><p>Years Experience</p></div>
+</div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <h2>Pyetje të Shpeshta</h2>
+  <p class="faq-sub">Çfarë pyesin shpesh klientët</p>
+  <div class="wrap">
+    <details><summary>Çfarë përfshin branding-u?</summary><p>Fillon me kërkimin e tregut dhe strategjinë, pastaj logo, identiteti vizual (ngjyra, tipografi, stil fotografie) dhe udhëzuesi i brandit, që emri juaj të duket njësoj kudo.</p></details>
+    <details><summary>A mund ta ripunoni logon që kam tashmë?</summary><p>Po. Mund ta përmirësojmë ose ta ridizenjojmë logon ekzistuese dhe ta ndërtojmë një identitet të plotë rreth saj, ose të nisim nga e para.</p></details>
+    <details><summary>Çfarë marr në fund të projektit?</summary><p>Logon, paletën e ngjyrave, tipografinë dhe udhëzuesin e brandit me rregullat e përdorimit, në mënyrë që ju dhe çdokush që punon për ju ta përdorë saktë.</p></details>
+    <details><summary>Sa kohë zgjat një projekt branding?</summary><p>Varet nga shërbimet që zgjidhni. Pas bisedës së parë ju japim një afat dhe një çmim të qartë para se të filloni.</p></details>
+    <details><summary>A mund të shtoj edhe një website?</summary><p>Po. Paketa "Branding + Website" (€400) përfshin website-in Fillo Online, të dizajnuar sipas identitetit të ri që krijojmë.</p></details>
+    <details><summary>Si fillon bashkëpunimi?</summary><p>Plotësoni formularin më poshtë ose na shkruani në WhatsApp. Biseda e parë është për të kuptuar biznesin tuaj, pastaj propozojmë shërbimin më të përshtatshëm.</p></details>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section class="cta-contact" id="contact">
+  <div class="cta-heading" id="ctaHeading">
+    <h2>Ready to build something<br><em>extraordinary?</em></h2>
+    <p class="cta-sub">Na tregoni për projektin tuaj</p>
+  </div>
+
+  <div class="cta-divider"></div>
+
+  <div class="blend-form" id="blendForm">
+    <div class="form-row-2">
+      <div class="blend-field">
+        <input type="text" id="f-name" placeholder=" ">
+        <label>Emri juaj</label>
+      </div>
+      <div class="blend-field">
+        <input type="tel" id="f-phone" placeholder=" ">
+        <label>Numri i telefonit</label>
+      </div>
+    </div>
+
+    <div class="blend-field">
+      <input type="email" id="f-email" placeholder=" ">
+      <label>Email</label>
+    </div>
+
+    <div class="form-row-2">
+      <div class="blend-field select-wrap">
+        <span class="select-label">Shërbimi</span>
+        <select id="f-service" onchange="this.classList.add('filled')">
+          <option value="" disabled selected>Zgjidhni...</option>
+          <option>Logo Design</option>
+          <option>Visual Branding</option>
+          <option>Brand Guidelines</option>
+          <option>Market Research</option>
+          <option>Paketë e plotë</option>
+        </select>
+      </div>
+      <div class="blend-field select-wrap">
+        <span class="select-label">Paketa</span>
+        <select id="f-package" onchange="this.classList.add('filled')">
+          <option value="" disabled selected>Zgjidhni...</option>
+          <option>Branding Bazë — €290</option>
+          <option>Branding + Website — €400</option>
+          <option>Vetëm një shërbim</option>
+          <option>Nuk jam i sigurt, më këshilloni</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="blend-field">
+      <textarea id="f-message" placeholder="Na tregoni më shumë..."></textarea>
+    </div>
+
+    <div>
+      <button class="btn-submit" onclick="sendToWhatsApp()">
+        Dërgo projektin <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 branding.al. All rights reserved.</p>
+</footer>
+
+<script>
+// CURSOR
+const dot=document.getElementById('dot');
+const ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,summary,.step-item,.pk,input,textarea,select').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.classList.add('hover');dot.classList.add('hover');});
+  el.addEventListener('mouseleave',()=>{ring.classList.remove('hover');dot.classList.remove('hover');});
+});
+
+// SCROLL ANIMATIONS
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el=entry.target;
+      el.style.animationDelay=(el.dataset.delay||0)+'s';
+      el.classList.add('visible');
+      observer.unobserve(el);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.step-item,.pk').forEach(el=>observer.observe(el));
+
+// CTA heading + form reveal
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      revealObs.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+revealObs.observe(document.getElementById('ctaHeading'));
+revealObs.observe(document.getElementById('blendForm'));
+
+// PARALLAX
+const heroMedia=document.getElementById('heroMedia');
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-0.5)*14;
+  const y=(e.clientY/window.innerHeight-0.5)*8;
+  if(heroMedia) heroMedia.style.transform=`scale(1.04) translate(${x*0.4}px,${y*0.3}px)`;
+});
+
+// COUNTER
+const countObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el=entry.target;
+      const target=+el.dataset.target;
+      let current=0;const step=target/60;
+      const timer=setInterval(()=>{
+        current+=step;
+        if(current>=target){el.textContent=target+'+';clearInterval(timer);}
+        else{el.textContent=Math.floor(current);}
+      },20);
+      countObs.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.count').forEach(el=>countObs.observe(el));
+
+// ZGJIDH PAKETËN
+function choosePackage(v){
+  const s=document.getElementById('f-package');
+  s.value=v;s.classList.add('filled');
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+}
+
+// WHATSAPP
+function sendToWhatsApp(){
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const service = document.getElementById('f-service').value;
+  const pack    = document.getElementById('f-package').value;
+  const message = document.getElementById('f-message').value.trim();
+
+  if(!name || !phone){
+    alert('Ju lutem plotësoni të paktën emrin dhe numrin e telefonit.');
+    return;
+  }
+
+  const text =
+    '*Kërkesë e re nga faqja (Branding)*\n\n' +
+    '👤 *Emri:* ' + name + '\n' +
+    '📞 *Telefoni:* ' + phone + '\n' +
+    '📧 *Email:* ' + (email||'—') + '\n' +
+    '💼 *Shërbimi:* ' + (service||'—') + '\n' +
+    '📦 *Paketa:* ' + (pack||'—') + '\n' +
+    '💬 *Mesazhi:* ' + (message||'—');
+
+  const wpNumber = '355696736765';
+  window.open('https://wa.me/' + wpNumber + '?text=' + encodeURIComponent(text), '_blank');
+}
+</script>
+</body>
+</html>
