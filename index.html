@@ -20,7 +20,7 @@
 html{scroll-behavior:smooth;}
 section[id],footer[id]{scroll-margin-top:70px;}
 
-/* About Us */
+/* Rreth nesh */
 .about-grid{
   display:block;
   max-width:700px;
@@ -35,7 +35,7 @@ section[id],footer[id]{scroll-margin-top:70px;}
   line-height:1.8;
 }
 
-/* ===== Selected Work: shkallë ===== */
+/* ===== Punimet e zgjedhura: shkallë ===== */
 .portfolio{
   padding:90px 6vw 120px;
   overflow:hidden;
@@ -209,7 +209,7 @@ section[id],footer[id]{scroll-margin-top:70px;}
   .step{transform:none !important;}
 }
 
-/* ===== Hamburger menu ===== */
+/* ===== Menuja hamburger ===== */
 .menu-btn{cursor:pointer;}
 .menu-overlay{
   position:fixed;
@@ -392,17 +392,79 @@ body.menu-open{overflow:hidden;}
   .offer-grid{grid-template-columns:1fr;}
   .offers-sec{padding:70px 6vw;}
 }
+
+/* ===== Floating socials ===== */
+.float-social{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:1500;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.float-social a{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#49110b;
+  color:#f6f2ec;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  transition:transform .3s ease,background .3s ease;
+}
+.float-social a:hover{transform:translateY(-3px) scale(1.06);background:#6b1a11;}
+.float-social a.wa{background:#25d366;color:#fff;}
+.float-social a.wa:hover{background:#1ebe5a;}
+.float-social svg{width:22px;height:22px;fill:currentColor;}
+
+/* ===== Zgjedhësi i gjuhës ===== */
+.lang-switch{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:1500;
+  display:flex;
+  background:#49110b;
+  border-radius:999px;
+  padding:4px;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+.lang-switch button{
+  border:0;
+  background:none;
+  color:#f6f2ec;
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  letter-spacing:.12em;
+  padding:8px 13px;
+  border-radius:999px;
+  cursor:pointer;
+  opacity:.65;
+  transition:background .3s ease,color .3s ease,opacity .3s ease;
+}
+.lang-switch button:hover{opacity:1;}
+.lang-switch button.active{background:#f6f2ec;color:#49110b;opacity:1;}
+body.menu-open .float-social,
+body.menu-open .lang-switch{display:none;}
+@media(max-width:600px){
+  .float-social{right:12px;bottom:12px;gap:8px;}
+  .float-social a{width:44px;height:44px;}
+  .lang-switch{left:12px;bottom:12px;}
+}
 </style>
 
 <meta name="description" content="branding.al është agjenci kreative në Shqipëri: logo, branding, website, social media dhe printim për biznese lokale, hotele dhe restorante.">
-<link rel="canonical" href="https://branding.al/">
+<link rel="canonical" href="https://4rpx2hx65q-cloud.github.io/branding.al/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sq_AL">
 <meta property="og:title" content="branding.al | Agjenci kreative: branding, website, marketing">
 <meta property="og:description" content="Ndërtojmë brande, website dhe fushata dixhitale për biznese lokale në Shqipëri.">
-<meta property="og:url" content="https://branding.al/">
-<meta property="og:image" content="https://branding.al/branding%20prof.png">
+<meta property="og:url" content="https://4rpx2hx65q-cloud.github.io/branding.al/">
+<meta property="og:image" content="https://4rpx2hx65q-cloud.github.io/branding.al/logo/branding%20prof.png">
 
 <script type="application/ld+json">
 {
@@ -410,12 +472,12 @@ body.menu-open{overflow:hidden;}
   "@graph": [
     {
       "@type": "ProfessionalService",
-      "@id": "https://branding.al/#organization",
+      "@id": "https://4rpx2hx65q-cloud.github.io/branding.al/#organization",
       "name": "branding.al",
       "alternateName": "Branding AL",
-      "url": "https://branding.al",
-      "logo": "https://branding.al/smm.png",
-      "image": "https://branding.al/branding%20prof.png",
+      "url": "https://4rpx2hx65q-cloud.github.io/branding.al/",
+      "logo": "https://4rpx2hx65q-cloud.github.io/branding.al/logo/favicon.png",
+      "image": "https://4rpx2hx65q-cloud.github.io/branding.al/logo/branding%20prof.png",
       "description": "Agjenci kreative në Shqipëri që ndihmon bizneset lokale (restorante, hotele, dyqane, kompani) me logo, branding, website, social media dhe printim.",
       "slogan": "Çdo histori e mirë meriton të gjendet online.",
       "foundingDate": "2026",
@@ -428,27 +490,35 @@ body.menu-open{overflow:hidden;}
       },
       "telephone": "+355696736765",
       "email": "brannding.al@gmail.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+355696736765",
+        "email": "brannding.al@gmail.com",
+        "availableLanguage": ["sq", "en", "pl"]
+      },
       "sameAs": [
         "https://www.instagram.com/branding__al/"
       ],
       "knowsAbout": ["Branding", "Dizajn logoje", "Dizajn website", "Marketing në rrjete sociale", "Printim"],
       "makesOffer": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding dhe logo", "url": "https://branding.al/services/branding.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing", "url": "https://branding.al/services/social.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dizajn Website", "url": "https://branding.al/services/web.html" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Printim" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding dhe logo", "url": "https://4rpx2hx65q-cloud.github.io/branding.al/services/branding.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing", "url": "https://4rpx2hx65q-cloud.github.io/branding.al/services/social.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dizajn Website", "url": "https://4rpx2hx65q-cloud.github.io/branding.al/services/web.html" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Printim", "url": "https://4rpx2hx65q-cloud.github.io/branding.al/#sherbimet" } }
       ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://branding.al/#website",
-      "url": "https://branding.al",
+      "@id": "https://4rpx2hx65q-cloud.github.io/branding.al/#website",
+      "url": "https://4rpx2hx65q-cloud.github.io/branding.al/",
       "name": "branding.al",
-      "inLanguage": "sq",
-      "publisher": { "@id": "https://branding.al/#organization" }
+      "inLanguage": ["sq", "en", "pl"],
+      "publisher": { "@id": "https://4rpx2hx65q-cloud.github.io/branding.al/#organization" }
     },
     {
       "@type": "FAQPage",
+      "inLanguage": "sq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -498,19 +568,19 @@ body.menu-open{overflow:hidden;}
 </header>
 
 
-<!-- MENU (hamburger) -->
+<!-- MENUJA (hamburger) -->
 
 <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
 
 <button class="menu-close" id="menuClose" aria-label="Mbyll menunë">&times;</button>
 
 <nav>
-<a href="#top">Home</a>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#work">Work</a>
-<a href="#contact">Contact</a>
-<a href="#oferta">Offers</a>
+<a href="#top">Kreu</a>
+<a href="#services">Shërbimet</a>
+<a href="#about">Rreth nesh</a>
+<a href="#work">Punimet</a>
+<a href="#contact">Kontakt</a>
+<a href="#oferta">Ofertat</a>
 </nav>
 
 <div class="menu-social">
@@ -531,53 +601,53 @@ body.menu-open{overflow:hidden;}
 
 <div class="hero-overlay">
 
-<h1>We build brands people remember</h1>
+<h1>Ndërtojmë brande që njerëzit i mbajnë mend</h1>
 
 <p>Creative Marketing &amp; Web Design</p>
 
-<a href="#work" class="btn">View Work</a>
+<a href="#work" class="btn">Shiko punimet</a>
 
 </div>
 
 </section>
 
 
-<!-- SCROLL TEXT -->
+<!-- TEKSTI QË LËVIZ -->
 
 <section class="scroll-text">
 
 <div class="scroll-track">
 
-<span>BRANDING   MARKETING   WEBSITE   PRINTING  </span>
-<span>BRANDING   MARKETING   WEBSITE   PRINTING </span>
-<span>BRANDING   MARKETING   WEBSITE   PRINTING </span>
-<span>BRANDING   MARKETING   WEBSITE   PRINTING </span>
+<span>BRANDING   MARKETING   WEBSITE   PRINTIM  </span>
+<span>BRANDING   MARKETING   WEBSITE   PRINTIM </span>
+<span>BRANDING   MARKETING   WEBSITE   PRINTIM </span>
+<span>BRANDING   MARKETING   WEBSITE   PRINTIM </span>
 </div>
 
 </section>
 
 
-<!-- SERVICES -->
+<!-- SHËRBIMET -->
 
 <section class="services" id="services">
 
-<h2>Our Services</h2>
+<h2>Shërbimet tona</h2>
 
 <div class="service-grid">
 
 <a href="services/branding.html" class="service">
 <h3>Branding</h3>
-<p>Building brands that stand out.</p>
+<p>Ndërtojmë brande që dallojnë nga të tjerët.</p>
 </a>
 
 <a href="services/social.html" class="service">
-<h3>Social Media</h3>
-<p>Creative campaigns that engage audiences.</p>
+<h3>Rrjete sociale</h3>
+<p>Fushata kreative që tërheqin audiencën.</p>
 </a>
 
 <a href="services/web.html" class="service">
 <h3>Web Design</h3>
-<p>Modern websites that convert visitors.</p>
+<p>Website moderne që i kthejnë vizitorët në klientë.</p>
 </a>
 
 </div>
@@ -585,7 +655,7 @@ body.menu-open{overflow:hidden;}
 </section>
 
 
-<!-- ABOUT -->
+<!-- RRETH NESH -->
 
 <section class="about" id="about">
 
@@ -622,13 +692,13 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 </section>
 
 
-<!-- PORTFOLIO -->
+<!-- PORTOFOLI -->
 
 <section class="portfolio" id="work">
 
 <div class="portfolio-head">
-<span class="eyebrow">Portfolio</span>
-<h2>Selected Work</h2>
+<span class="eyebrow">Portofol</span>
+<h2>Punimet e zgjedhura</h2>
 <p>Disa nga brandet që kemi ndërtuar bashkë me klientët tanë.</p>
 </div>
 
@@ -638,11 +708,11 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://4rpx2hx65q-cloud.github.io/Junik_distribution/" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/2.webp" alt="Junik Distribution logo" loading="lazy">
+<img src="brende/2.webp" alt="Logoja e Junik Distribution" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Junik Distribution</span>
-<span class="tag">Logo Social Website</span>
+<span class="tag">Logo · Social · Website</span>
 </figcaption>
 </a>
 </figure>
@@ -652,11 +722,11 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://4rpx2hx65q-cloud.github.io/Enea_Rental/" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/logo1.webp" alt="Enea Rental logo" loading="lazy">
+<img src="brende/logo1.webp" alt="Logoja e Enea Rental" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Enea Rental</span>
-<span class="tag">Logo Social Website</span>
+<span class="tag">Logo · Social · Website</span>
 </figcaption>
 </a>
 </figure>
@@ -666,11 +736,11 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://4rpx2hx65q-cloud.github.io/bar_enea_sarande/" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/eneabar.webp" alt="Bar Enea logo" loading="lazy">
+<img src="brende/eneabar.webp" alt="Logoja e Bar Enea" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Bar Enea</span>
-<span class="tag">Logo Social Website</span>
+<span class="tag">Logo · Social · Website</span>
 </figcaption>
 </a>
 </figure>
@@ -680,11 +750,11 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://skinform.al" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/skinformlogo.webp" alt="Skinform logo" loading="lazy">
+<img src="brende/skinformlogo.webp" alt="Logoja e Skinform" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Skinform</span>
-<span class="tag">Logo Social Website</span>
+<span class="tag">Logo · Social · Website</span>
 </figcaption>
 </a>
 </figure>
@@ -695,29 +765,29 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 </section>
 
 
-<!-- STATS -->
+<!-- STATISTIKAT -->
 
 <section class="stats">
 
 <div class="stat">
 <h3>10+</h3>
-<p>Projects</p>
+<p>Projekte</p>
 </div>
 
 <div class="stat">
 <h3>7+</h3>
-<p>Brands Built</p>
+<p>Brande të ndërtuara</p>
 </div>
 
 <div class="stat">
 <h3>2</h3>
-<p>Years Experience</p>
+<p>Vite përvojë</p>
 </div>
 
 </section>
 
 
-<!-- ALL SERVICES -->
+<!-- TË GJITHA SHËRBIMET -->
 
 <section class="all-svc" id="sherbimet">
 
@@ -786,7 +856,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 </section>
 
 
-<!-- OFFERS -->
+<!-- OFERTAT -->
 
 <section class="offers-sec" id="oferta">
 <div class="offers-in">
@@ -839,7 +909,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <h2>Çdo histori e mirë<br>meriton të gjendet online.</h2>
 <p>Branding, Website &amp; Marketing</p>
 
-<a href="https://wa.me/355696736765" class="btn-dark" target="_blank" rel="noopener">Start a Project</a>
+<a href="https://wa.me/355696736765" class="btn-dark" target="_blank" rel="noopener">Merr ofertën</a>
 
 </section>
 
@@ -868,12 +938,12 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 </div>
 
 <div>
-<h4>Menu</h4>
+<h4>Menuja</h4>
 <ul>
-<li><a href="#top">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#work">Work</a></li>
+<li><a href="#top">Kreu</a></li>
+<li><a href="#services">Shërbimet</a></li>
+<li><a href="#about">Rreth nesh</a></li>
+<li><a href="#work">Punimet</a></li>
 </ul>
 </div>
 
@@ -910,7 +980,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
   if(p&&p.catch)p.catch(()=>{});
 })();
 
-// Selected Work: shfaqja një nga një kur bën scroll
+// Punimet e zgjedhura: shfaqja një nga një kur bën scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){
     e.target.classList.remove('pre');
@@ -943,7 +1013,7 @@ addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(p
 addEventListener('resize',parallax);
 parallax();
 
-// Hamburger menu
+// Menuja hamburger
 const menuBtn=document.getElementById('menuBtn');
 const menuOverlay=document.getElementById('menuOverlay');
 const menuClose=document.getElementById('menuClose');
@@ -953,6 +1023,7 @@ function setMenu(open){
   menuBtn.setAttribute('aria-expanded',open?'true':'false');
   document.body.classList.toggle('menu-open',open);
 }
+
 menuBtn.addEventListener('click',()=>setMenu(true));
 menuBtn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setMenu(true);}});
 menuClose.addEventListener('click',()=>setMenu(false));
@@ -961,6 +1032,183 @@ addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
 </script>
 
 <script src="script.js"></script>
+
+<!-- Floating socials -->
+<div class="float-social">
+  <a class="wa" href="https://wa.me/355696736765" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.3 5.3 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.3.6a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/branding__al/" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.2 5.8a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1z"/></svg>
+  </a>
+  <a href="mailto:brannding.al@gmail.com" aria-label="Gmail">
+    <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  </a>
+</div>
+
+<!-- Zgjedhësi i gjuhës -->
+<div class="lang-switch" id="langSwitch" role="group" aria-label="Gjuha">
+  <button type="button" data-lang="sq" class="active">SQ</button>
+  <button type="button" data-lang="en">EN</button>
+  <button type="button" data-lang="pl">PL</button>
+</div>
+
+<script>
+// Fjalori: [shqip, anglisht, polonisht]
+const T=[
+["Kreu","Home","Start"],
+["Shërbimet","Services","Usługi"],
+["Rreth nesh","About us","O nas"],
+["Punimet","Work","Realizacje"],
+["Kontakt","Contact","Kontakt"],
+["Ofertat","Offers","Oferty"],
+["Menuja","Menu","Menu"],
+
+["Ndërtojmë brande që njerëzit i mbajnë mend","We build brands people remember","Budujemy marki, które ludzie zapamiętują"],
+["Shiko punimet","See our work","Zobacz realizacje"],
+["BRANDING MARKETING WEBSITE PRINTIM","BRANDING   MARKETING   WEBSITE   PRINTING","BRANDING   MARKETING   STRONY WWW   DRUK"],
+
+["Shërbimet tona","Our services","Nasze usługi"],
+["Ndërtojmë brande që dallojnë nga të tjerët.","We build brands that stand out from the rest.","Budujemy marki, które wyróżniają się na tle innych."],
+["Rrjete sociale","Social media","Media społecznościowe"],
+["Fushata kreative që tërheqin audiencën.","Creative campaigns that attract your audience.","Kreatywne kampanie, które przyciągają odbiorców."],
+["Web Design","Web Design","Projektowanie stron WWW"],
+["Website moderne që i kthejnë vizitorët në klientë.","Modern websites that turn visitors into customers.","Nowoczesne strony, które zamieniają odwiedzających w klientów."],
+
+["Më shumë se një agjenci kreative","More than a creative agency","Więcej niż agencja kreatywna"],
+["branding.al është një nismë për të ndryshuar mënyrën se si bizneset lokale shfaqen online. Pas çdo restoranti, hoteli apo dyqani ka një familje, një punë të bërë me zemër dhe një histori që ia vlen të dëgjohet.",
+ "branding.al is an initiative to change the way local businesses show up online. Behind every restaurant, hotel or shop there is a family, work done with heart, and a story worth hearing.",
+ "branding.al to inicjatywa, która zmienia sposób, w jaki lokalne firmy pokazują się w internecie. Za każdą restauracją, hotelem czy sklepem stoi rodzina, praca wykonana z sercem i historia, którą warto usłyszeć."],
+["Kur këto histori tregohen me qartësi, krenari dhe cilësi, vizitorët i gjejnë, u besojnë dhe i zgjedhin. Kështu vjen më shumë turizëm, ekonomi lokale më e fortë dhe një jetë më e mirë për njerëzit që e duan vendin e tyre dhe punojnë çdo ditë për të.",
+ "When these stories are told with clarity, pride and quality, visitors find them, trust them and choose them. That brings more tourism, a stronger local economy and a better life for the people who love their country and work for it every day.",
+ "Gdy te historie są opowiedziane jasno, z dumą i jakością, odwiedzający je znajdują, ufają im i je wybierają. Tak rośnie turystyka, umacnia się lokalna gospodarka i poprawia życie ludzi, którzy kochają swój kraj i pracują dla niego każdego dnia."],
+["Ne ndërtojmë brande, website dhe fushata dixhitale, por qëllimi ynë është më i madh: që çdo biznes lokal të shihet ashtu siç e meriton, dhe që komunitetet të rriten bashkë me të.",
+ "We build brands, websites and digital campaigns, but our goal is bigger: that every local business is seen the way it deserves, and that communities grow together with it.",
+ "Tworzymy marki, strony internetowe i kampanie cyfrowe, ale nasz cel jest większy: aby każda lokalna firma była postrzegana tak, jak na to zasługuje, a społeczności rosły razem z nią."],
+
+["Portofol","Portfolio","Portfolio"],
+["Punimet e zgjedhura","Selected work","Wybrane realizacje"],
+["Disa nga brandet që kemi ndërtuar bashkë me klientët tanë.","Some of the brands we have built together with our clients.","Kilka marek, które stworzyliśmy razem z naszymi klientami."],
+["Logo · Social · Website","Logo · Social · Website","Logo · Social media · Strona WWW"],
+
+["Projekte","Projects","Projekty"],
+["Brande të ndërtuara","Brands built","Stworzone marki"],
+["Vite përvojë","Years of experience","Lata doświadczenia"],
+
+["Të gjitha shërbimet","All services","Wszystkie usługi"],
+["Çmime fikse, pa surpriza. Zgjidhni një shërbim ose kombinojini.","Fixed prices, no surprises. Choose one service or combine them.","Stałe ceny, bez niespodzianek. Wybierz jedną usługę lub połącz kilka."],
+["Branding dhe logo","Branding and logo","Branding i logo"],
+["Një identitet i qartë që duket njësoj kudo: në menu, në Instagram, në tabelë dhe në website.","A clear identity that looks the same everywhere: on the menu, on Instagram, on signage and on the website.","Wyraźna tożsamość, która wygląda tak samo wszędzie: w menu, na Instagramie, na szyldzie i na stronie."],
+["Nga","From","Od"],
+["Shiko paketat","View packages","Zobacz pakiety"],
+["Dizajn logoje","Logo design","Projekt logo"],
+["simbol dhe wordmark","symbol and wordmark","symbol i logotyp"],
+["Identitet vizual","Visual identity","Identyfikacja wizualna"],
+["ngjyra, tipografi, ikona","colors, typography, icons","kolory, typografia, ikony"],
+["Udhëzues brandi","Brand guidelines","Księga marki"],
+["rregullat e përdorimit","usage rules","zasady użycia"],
+["Kërkim tregu","Market research","Badanie rynku"],
+["si dalloheni","how you stand out","jak się wyróżnić"],
+
+["Social media","Social media","Media społecznościowe"],
+["Përmbajtje e planifikuar sipas industrisë suaj dhe caption që njerëzit, Google dhe AI i kuptojnë.","Content planned for your industry and captions that people, Google and AI understand.","Treści zaplanowane pod Twoją branżę i opisy zrozumiałe dla ludzi, Google i AI."],
+["€250 / muaj","€250 / month","€250 / miesiąc"],
+["Strategji dhe kalendar postimesh","Strategy and post calendar","Strategia i kalendarz postów"],
+["çdo muaj","every month","co miesiąc"],
+["Postime, reel dhe story","Posts, reels and stories","Posty, reelsy i relacje"],
+["sipas paketës","per package","zgodnie z pakietem"],
+["Reklama Meta, TikTok, Google","Meta, TikTok, Google ads","Reklamy Meta, TikTok, Google"],
+["Rritje + Reklama","Growth + Ads","Wzrost + Reklamy"],
+["Raport mujor me rezultatet","Monthly results report","Miesięczny raport z wynikami"],
+
+["Dizajn website","Website design","Projektowanie stron WWW"],
+["Website të shpejta, për celular, të organizuara që Google dhe asistentët AI t'ju kuptojnë.","Fast, mobile-friendly websites, structured so Google and AI assistants understand you.","Szybkie strony przyjazne telefonom, zorganizowane tak, by Google i asystenci AI Cię rozumieli."],
+["Fillo Online","Start Online","Zacznij online"],
+["1 faqe · €290","1 page · €290","1 strona · €290"],
+["Website i Plotë","Complete Website","Pełna strona"],
+["deri në 3 faqe · €400","up to 3 pages · €400","do 3 podstron · €400"],
+["Website Profesional","Professional Website","Profesjonalna strona"],
+["5+ faqe · €700","5+ pages · €700","5+ podstron · €700"],
+["SEO, WhatsApp, Google Maps","SEO, WhatsApp, Google Maps","SEO, WhatsApp, Google Maps"],
+["të përfshira","included","w cenie"],
+
+["Printim","Printing","Druk"],
+["Materialet fizike që e mbajnë brandin tuaj të njëjtë edhe jashtë ekranit.","Physical materials that keep your brand consistent beyond the screen.","Materiały fizyczne, dzięki którym marka wygląda tak samo także poza ekranem."],
+["Çmimi sipas ofertës","Price on request","Cena wg wyceny"],
+["Kërko ofertë","Request a quote","Poproś o wycenę"],
+["Kartvizita","Business cards","Wizytówki"],
+["Materiale promocionale","Promotional materials","Materiały promocyjne"],
+
+["Ofertat aktuale","Current offers","Aktualne oferty"],
+["Kombinoni shërbimet dhe kurseni. Çmimet janë fikse, pa kosto të fshehura.","Combine services and save. Prices are fixed, with no hidden costs.","Łącz usługi i oszczędzaj. Ceny są stałe, bez ukrytych kosztów."],
+["Abonim 3 mujor në Social media management merr website falas","A 3-month Social media management subscription gets you a free website","Przy 3-miesięcznym abonamencie na social media dostajesz stronę gratis"],
+["Falas","Free","Gratis"],
+["Website Fillo Online, me abonim 3 mujor në social media","Start Online website, with a 3-month social media subscription","Strona Zacznij online przy 3-miesięcznym abonamencie na social media"],
+["Abonim 3 muaj në Rritje Bazë ose Rritje + Reklama","3-month subscription to Basic Growth or Growth + Ads","3-miesięczny abonament Wzrost Podstawowy lub Wzrost + Reklamy"],
+["Website një-faqesh, i përshtatshëm për celular","One-page, mobile-friendly website","Jednostronicowa strona przyjazna telefonom"],
+["Menu ose shërbime, galeri dhe vlerësime klientësh","Menu or services, gallery and customer reviews","Menu lub usługi, galeria i opinie klientów"],
+["Google Maps, orari, butona WhatsApp dhe Instagram","Google Maps, opening hours, WhatsApp and Instagram buttons","Google Maps, godziny otwarcia, przyciski WhatsApp i Instagram"],
+["Çmimi mujor i paketës mbetet i pandryshuar","The package's monthly price stays unchanged","Miesięczna cena pakietu pozostaje bez zmian"],
+["Merr ofertën","Get the offer","Skorzystaj z oferty"],
+["Branding + Website","Branding + Website","Branding + Strona WWW"],
+["Kurseni €40 kur i merrni bashkë","Save €40 when you take them together","Zaoszczędź €40, biorąc je razem"],
+["Gjithçka që përfshin Branding Bazë","Everything included in Basic Branding","Wszystko, co zawiera Branding Podstawowy"],
+["Website Fillo Online një-faqesh, për celular","Start Online one-page website, mobile-friendly","Jednostronicowa strona Zacznij online, dla telefonów"],
+["Website i dizajnuar sipas identitetit të ri","Website designed to match the new identity","Strona zaprojektowana zgodnie z nową identyfikacją"],
+["Një ekip për gjithçka, nga logoja te faqja","One team for everything, from logo to website","Jeden zespół do wszystkiego, od logo po stronę"],
+["Na shkruani në WhatsApp","Message us on WhatsApp","Napisz do nas na WhatsApp"],
+["dhe ju këshillojmë pa detyrim.","and we'll advise you with no obligation.","a doradzimy bez zobowiązań."],
+["Nuk jeni të sigurt cilën të zgjidhni?","Not sure which one to choose?","Nie wiesz, którą wybrać?"],
+
+["Çdo histori e mirë","Every good story","Każda dobra historia"],
+["meriton të gjendet online.","deserves to be found online.","zasługuje na to, by być w sieci."],
+["Branding, Website & Marketing","Branding, Website & Marketing","Branding, strony WWW i marketing"],
+
+["Çdo histori e mirë meriton të gjendet online. Agjenci kreative në Sarandë për biznese lokale.","Every good story deserves to be found online. Creative agency in Sarandë for local businesses.","Każda dobra historia zasługuje na to, by być w sieci. Agencja kreatywna w Sarandzie dla lokalnych firm."],
+["Sarandë, Shqipëri","Sarandë, Albania","Sarandë, Albania"],
+["Na shkruaj në WhatsApp","Message us on WhatsApp","Napisz do nas na WhatsApp"],
+["© 2026 branding.al. Të gjitha të drejtat e rezervuara.","© 2026 branding.al. All rights reserved.","© 2026 branding.al. Wszelkie prawa zastrzeżone."]
+];
+
+(function(){
+  const norm=s=>s.replace(/\s+/g,' ').trim();
+  const map=new Map(T.map(r=>[norm(r[0]),{en:r[1],pl:r[2]}]));
+  const meta={
+    sq:{t:'branding.al',d:"branding.al është agjenci kreative në Shqipëri: logo, branding, website, social media dhe printim për biznese lokale, hotele dhe restorante."},
+    en:{t:'branding.al | Creative agency: branding, websites, marketing',d:'branding.al is a creative agency in Albania: logo, branding, websites, social media and printing for local businesses, hotels and restaurants.'},
+    pl:{t:'branding.al | Agencja kreatywna: branding, strony WWW, marketing',d:'branding.al to agencja kreatywna w Albanii: logo, branding, strony internetowe, media społecznościowe i druk dla lokalnych firm, hoteli i restauracji.'}
+  };
+
+  function apply(lang){
+    const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:n=>{
+        const p=n.parentNode.nodeName;
+        return (p==='SCRIPT'||p==='STYLE'||!n.nodeValue.trim())?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let n;
+    while((n=w.nextNode())){
+      if(n._sq===undefined)n._sq=n.nodeValue;
+      const row=map.get(norm(n._sq));
+      if(lang==='sq'||!row||!row[lang]){n.nodeValue=n._sq;continue;}
+      const lead=n._sq.match(/^\s*/)[0], trail=n._sq.match(/\s*$/)[0];
+      n.nodeValue=lead+row[lang]+trail;
+    }
+    document.documentElement.lang=lang;
+    document.title=meta[lang].t;
+    const md=document.querySelector('meta[name="description"]');
+    if(md)md.setAttribute('content',meta[lang].d);
+    document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+    try{localStorage.setItem('lang',lang);}catch(e){}
+  }
+
+  document.querySelectorAll('#langSwitch button').forEach(b=>b.addEventListener('click',()=>apply(b.dataset.lang)));
+
+  let saved='sq';
+  try{saved=localStorage.getItem('lang')||'sq';}catch(e){}
+  if(saved!=='sq'&&meta[saved])apply(saved);
+})();
+</script>
 
 </body>
 </html>
