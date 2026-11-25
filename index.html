@@ -7,11 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>branding.al</title>
-<link rel="icon" type="image/png" href="../logo/favicon.png">
-<link rel="apple-touch-icon" href="../logo/favicon.png">
+<link rel="icon" type="image/png" href="logo/favicon.png">
+<link rel="apple-touch-icon" href="logo/favicon.png">
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -140,7 +142,7 @@ section[id],footer[id]{scroll-margin-top:70px;}
 .project img{
   width:100%;
   height:100%;
-  object-fit:contain;   /* nëse do foto të plota pa hapësira, ndërroje në cover */
+  object-fit:contain;
   display:block;
   filter:grayscale(1);
   opacity:.85;
@@ -258,6 +260,7 @@ section[id],footer[id]{scroll-margin-top:70px;}
 .menu-overlay.open nav a:nth-child(3){transition-delay:.24s;}
 .menu-overlay.open nav a:nth-child(4){transition-delay:.31s;}
 .menu-overlay.open nav a:nth-child(5){transition-delay:.38s;}
+.menu-overlay.open nav a:nth-child(6){transition-delay:.45s;}
 .menu-overlay nav a:hover{letter-spacing:.04em;}
 .menu-social{
   display:flex;
@@ -522,15 +525,15 @@ body.menu-open{overflow:hidden;}
 
 <section class="hero" id="top">
 
-<video autoplay muted loop playsinline class="hero-video">
-<source src="herovideo.mov" type="video/mp4">
+<video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="logo/herovideo-poster.webp">
+  <source src="logo/herovideo-mobile.mp4" type="video/mp4">
 </video>
 
 <div class="hero-overlay">
 
 <h1>We build brands people remember</h1>
 
-<p>Creative Marketing & Web Design</p>
+<p>Creative Marketing &amp; Web Design</p>
 
 <a href="#work" class="btn">View Work</a>
 
@@ -635,7 +638,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://4rpx2hx65q-cloud.github.io/Junik_distribution/" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/2.webp" alt="Junik Distribution logo">
+<img src="brende/2.webp" alt="Junik Distribution logo" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Junik Distribution</span>
@@ -649,7 +652,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://4rpx2hx65q-cloud.github.io/Enea_Rental/" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/logo1.webp" alt="Enea Rental logo">
+<img src="brende/logo1.webp" alt="Enea Rental logo" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Enea Rental</span>
@@ -663,7 +666,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://4rpx2hx65q-cloud.github.io/bar_enea_sarande/" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/eneabar.webp" alt="Bar Enea logo">
+<img src="brende/eneabar.webp" alt="Bar Enea logo" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Bar Enea</span>
@@ -677,7 +680,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <figure class="project">
 <a class="project-link" href="https://skinform.al" target="_blank" rel="noopener">
 <div class="project-img">
-<img src="brende/skinformlogo.webp" alt="Skinform logo">
+<img src="brende/skinformlogo.webp" alt="Skinform logo" loading="lazy">
 </div>
 <figcaption>
 <span class="name">Skinform</span>
@@ -712,6 +715,8 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 </div>
 
 </section>
+
+
 <!-- ALL SERVICES -->
 
 <section class="all-svc" id="sherbimet">
@@ -769,7 +774,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <h3>Printim</h3>
 <p>Materialet fizike që e mbajnë brandin tuaj të njëjtë edhe jashtë ekranit.</p>
 <div class="from">Çmimi sipas ofertës</div>
-<a class="more" href="https://wa.me/355696736765?text=Përshëndetje!%20Dua%20një%20ofertë%20për%20printim." target="_blank" rel="noopener">Kërko ofertë</a>
+<a class="more" href="https://wa.me/355696736765?text=P%C3%ABrsh%C3%ABndetje!%20Dua%20nj%C3%AB%20ofert%C3%AB%20p%C3%ABr%20printim." target="_blank" rel="noopener">Kërko ofertë</a>
 </div>
 <ul>
 <li><span>Kartvizita</span></li>
@@ -792,7 +797,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <div class="offer-grid">
 
 <article class="offer">
-<h3>Abonim 3 mujor ne Social media management merr website falas</h3>
+<h3>Abonim 3 mujor në Social media management merr website falas</h3>
 <div class="price"><s>€290</s>Falas</div>
 <p class="note">Website Fillo Online, me abonim 3 mujor në social media</p>
 <ul>
@@ -802,7 +807,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <li>Google Maps, orari, butona WhatsApp dhe Instagram</li>
 <li>Çmimi mujor i paketës mbetet i pandryshuar</li>
 </ul>
-<a class="o-cta" href="https://wa.me/355696736765?text=Përshëndetje!%20Dua%20ofertën%20Abonim%203%20mujor%20me%20website%20falas." target="_blank" rel="noopener">Merr ofertën</a>
+<a class="o-cta" href="https://wa.me/355696736765?text=P%C3%ABrsh%C3%ABndetje!%20Dua%20ofert%C3%ABn%20Abonim%203%20mujor%20me%20website%20falas." target="_blank" rel="noopener">Merr ofertën</a>
 </article>
 
 <article class="offer">
@@ -816,7 +821,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <li>Menu ose shërbime, galeri dhe vlerësime klientësh</li>
 <li>Një ekip për gjithçka, nga logoja te faqja</li>
 </ul>
-<a class="o-cta" href="https://wa.me/355696736765?text=Përshëndetje!%20Dua%20ofertën%20Branding%20%2B%20Website." target="_blank" rel="noopener">Merr ofertën</a>
+<a class="o-cta" href="https://wa.me/355696736765?text=P%C3%ABrsh%C3%ABndetje!%20Dua%20ofert%C3%ABn%20Branding%20%2B%20Website." target="_blank" rel="noopener">Merr ofertën</a>
 </article>
 
 </div>
@@ -832,7 +837,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <section class="cta">
 
 <h2>Çdo histori e mirë<br>meriton të gjendet online.</h2>
-<p>Branding, Website & Marketing</p>
+<p>Branding, Website &amp; Marketing</p>
 
 <a href="https://wa.me/355696736765" class="btn-dark" target="_blank" rel="noopener">Start a Project</a>
 
@@ -857,7 +862,7 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
 </a>
 <a href="https://wa.me/355696736765" target="_blank" rel="noopener" aria-label="WhatsApp">
-<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200 5.300 5.300 0 0 0 1.100 2.800 12 12 0 0 0 4.600 4c1.700.7 2.400.8 3.300.6a2.800 2.800 0 0 0 1.800-1.300 2.200 2.200 0 0 0 .2-1.300c-.1-.1-.3-.2-.5-.3z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.3 5.3 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.3.6a2.8 2.8 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
 </a>
 </div>
 </div>
@@ -891,6 +896,20 @@ meriton, dhe që komunitetet të rriten bashkë me të.
 </footer>
 
 <script>
+// Hero video: zgjedh versionin e vogël në celular, pastaj e nis
+(function(){
+  const v=document.getElementById('heroVideo');
+  if(!v)return;
+  const src=v.querySelector('source');
+  if(matchMedia('(max-width:480px)').matches){
+    src.src='logo/herovideo-small.mp4';
+  }
+  v.muted=true;
+  v.load();
+  const p=v.play();
+  if(p&&p.catch)p.catch(()=>{});
+})();
+
 // Selected Work: shfaqja një nga një kur bën scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){
